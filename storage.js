@@ -1,13 +1,14 @@
 //  a litle app STORAGE (Semyon.M)
-//  1. npm install mongoose readline-sync
+//  1. npm install mongoose readline-sync dotenv
 //  2. node storage.js
 
+require("dotenv").config();
 const mongoose = require("mongoose");
 const readlineSync = require("readline-sync");
 
 mongoose
   .connect(
-    "mongodb+srv://sammax0979:Ukme1AzGCvb8BT3f@cluster0.rorg3.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+    process.env.MONGODB_CONNECT
   )
   .then(() => {
     console.log("MongoDB connected successfully");
